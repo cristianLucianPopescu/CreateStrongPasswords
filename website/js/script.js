@@ -1,6 +1,6 @@
 var i = 0;
 var txt = 'Create Strong Passwords';
-var speed = 50;
+var speed = 120;
 
 function typeWriter() {
   if (i < txt.length) {
