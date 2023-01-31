@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>CSP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/style.css" />
+    <title>CSP</title>
+    <!-- LOADING EXTERNAL FILES LIKE CSS AND JS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="js/script.js"></script>
 </head>
-<body>
-    <h1>work in progress</h1>
+<!-- CALL THE FUNCTION FROM JS FILE TO AUTO-TYPE TITLE -->
+<body onload="typeWriter()">
+    <div class="container">
+        <div class="header">
+            <a href="index.html">
+                <img src="img/logo-small.png" alt="CSP logo">
+            </a>
+            <h1 id="title">
+            </h1> 
+        </div>
+        <div class="row">
+            <div class="column">
+                <h2>NEVER BE AFRAID your information get into wrong hands!</h2>
+                <h3>Learn how to stay safe online by creating STRONG PASSWORDS right here.</h3>
+                <button class="start" onclick="window.location.href='pages/signup.html';">Let's Start</button>
+            </div>
+            <div class="column">
+                <img src="img/background.jpg" alt="Someone typing credentials">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
