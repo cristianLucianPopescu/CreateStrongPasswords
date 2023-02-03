@@ -4,16 +4,19 @@
   box-sizing: border-box;
 }
 
-body {
+/* INDEX PAGE */
+
+#index {
   background-image: url('../img/wallpaper.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container {
   margin-left: auto;
   margin-right: auto;
   margin-top: 200px;
-  width: 42%;
+  width: 40%;
   padding: 10px;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -26,8 +29,8 @@ body {
 }
 
 .header h1 {
-  padding-top: 42px;
-  font-size: 2.9vw;
+  padding-top: 46px;
+  font-size: 2.8vw;
   background-color: #fff;
 }
 
@@ -49,25 +52,36 @@ body {
   background-color: #fff;
 }
 
-.column h2,
-h3 {
+.column h2,h3 {
   font-size: 1.7vw;
   background-color: #fff;
 }
 
+.bold {
+  font-weight: bold;
+  color: #fff;
+  background-color: #67696a;
+}
+
 .column button {
-  background-color: #0945d0;
-  border: 0;
+  background-color: #9a9aa7;
+  border: none;
   margin-top: 30px;
   color: #fff;
-  opacity: 0.6;
   padding: 10px 15px;
   border-radius: 100px;
+  box-shadow: 0px 0px 2px 2px rgb(151, 145, 145);
   font-size: 17px;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.5px;
   z-index: 999;
-  width: 150px;
+  min-height: 20px;
+  min-width: 100px;
   cursor: pointer;
+  transition-duration: 0.6s;
+}
+
+.column button:hover {
+  background-color: #FF5733;
 }
 
 .column img {
@@ -75,12 +89,108 @@ h3 {
   height: 100%;
 }
 
-.links {
-  font-size: 25px;
-  padding-left: 40px;
-  float: left;
-  word-spacing: 20px;
+/* SIGNUP PAGE */
+
+table {
+  width:100%;
 }
+
+.maincontent {
+  width:850px;
+  margin:0 auto;
+  padding:0;
+  border:1px solid black;
+}
+
+.services {
+  margin:0 0 0 0;
+  padding:0;
+  text-transform:uppercase;
+}
+
+.services li {
+  display:inline-block;
+  text-decoration:none;
+  width:31%;
+  margin:0;
+  text-align:center;
+  padding:1%;
+}
+
+.yellow {
+  background-color:#E9AA22;
+  color:white;
+}
+
+.red {
+  background-color:#C84B50;
+  color:white;
+}
+
+.blue {
+  background-color:#64A2C8;
+  color:white;
+}
+
+.green {
+  background-color:#78B1B1;
+  color:white;
+}
+
+table img {
+  width:100%;
+  height:300px;
+}
+
+table h2 {
+  text-align:center;
+  margin:0.5em;
+}
+
+.introduction {
+  text-align:center;
+  width:50%;
+  margin:0 auto;
+}
+
+.features td {
+  width:50%;
+  margin:0;
+  padding:0;
+  height:300px;
+  float:left;
+}
+
+.features h3 {
+  text-align:center;
+  padding:1em;
+}
+
+.features p {
+  margin-left:1em;
+}
+
+.features li {
+  margin-left:3em;
+}
+
+.designer {
+  text-align:center;
+  padding:1em;
+}
+
+.footer {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+.links {
+  font-size: 20px;
+  word-spacing: 10px;
+}
+
+/*MEDIA QUERIES*/
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
