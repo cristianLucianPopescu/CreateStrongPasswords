@@ -91,6 +91,10 @@
 
 /* SIGNUP PAGE */
 
+#signup {
+  background-color: #e3e3e8;
+}
+
 table {
   width:100%;
 }
@@ -99,41 +103,15 @@ table {
   width:850px;
   margin:0 auto;
   padding:0;
-  border:1px solid black;
 }
 
-.services {
-  margin:0 0 0 0;
-  padding:0;
-  text-transform:uppercase;
-}
-
-.services li {
-  display:inline-block;
-  text-decoration:none;
-  width:31%;
-  margin:0;
-  text-align:center;
-  padding:1%;
-}
-
-.yellow {
-  background-color:#E9AA22;
-  color:white;
-}
-
-.red {
-  background-color:#C84B50;
+.orange {
+  background-color:#cf644d;
   color:white;
 }
 
 .blue {
   background-color:#64A2C8;
-  color:white;
-}
-
-.green {
-  background-color:#78B1B1;
   color:white;
 }
 
@@ -153,17 +131,16 @@ table h2 {
   margin:0 auto;
 }
 
+.features {
+  margin-bottom: 20px;
+}
+
 .features td {
   width:50%;
   margin:0;
-  padding:0;
-  height:300px;
+  padding:20px;
+  height:250px;
   float:left;
-}
-
-.features h3 {
-  text-align:center;
-  padding:1em;
 }
 
 .features p {
@@ -174,21 +151,44 @@ table h2 {
   margin-left:3em;
 }
 
-.designer {
-  text-align:center;
-  padding:1em;
+#nextpage {
+  text-align: center;
+}
+
+#nextpage button {
+  background-color: #9a9aa7;
+  border: none;
+  margin: 40px;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 100px;
+  box-shadow: 0px 0px 2px 2px rgb(151, 145, 145);
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  z-index: 999;
+  min-height: 20px;
+  min-width: 300px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+}
+
+#nextpage button:hover {
+  background-color: #5b3898;
 }
 
 .footer {
   text-align: center;
   margin: auto;
   width: 100%;
+  padding-bottom: 20px;
 }
 
 .links {
   font-size: 20px;
   word-spacing: 10px;
 }
+
+/* STEPS PAGE */
 
 /*MEDIA QUERIES*/
 
