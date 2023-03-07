@@ -3,90 +3,230 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>CSP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- LOADING EXTERNAL FILES LIKE CSS AND JS -->
+    <title>CSP</title>
+    <!-- LOADING EXTERNAL FILES LIKE CSS -->
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <script src="../js/script.js"></script>
 </head>
 
-<body id="signup">
+<body id="register">
+    <div class="container">
+        <form id="signup" class="form">
+            <h1>Create Strong Passwords</h1>
+            <p>All fields are mandatory.</p>
 
-    <table class="maincontent">
-        <tr>
-            <td>
-                <a href="../index.html">
-                    <img src="../img/logooooo.png" alt="CSP logo">
-                </a>
-                <h2>What is a Password?</h2>
-                <p class="introduction">A Password is a word, phrase, or string of characters intended
-                    to differentiate an authorized user or process (for the purpose of permitting
-                    access) from an unauthorized user, or put another way, a password is used to prove
-                    one’s identity, or authorize access to a resource. It’s strongly implied that a
-                    password is secret. A password is usually paired with a username or other mechanism
-                    to provide authentication.</p>
-                <h2>Facts about passwords</h2>
-                <table class="features">
-                    <tr>
-                        <td class="orange">
-                            <p>What is a strong password? <br><br>
-                            <ul>
-                                <li>Is one you can’t guess or crack using a brute force attack</li>
-                                <li>Consists of a combination of uppercase and lowercase letters, numbers and special symbols, such as punctuation</li>
-                                <li>Is at least 12 characters long</li>
-                                <li>Doesn't contain memorable keyboard paths</li>
-                                <li>Is not based on your personal information</li>
-                                <li>Is unique for each account you have</li>
-                            </ul>
-                            </p>
-                        </td>
-                        <td class="blue">
-                            <p> A long password is a good password <br><br>
-                                When it comes to password security, length really 
-                                does matter. We recommend opting for a password that’s at least 12 characters long,
-                                even longer if you can. Each additional symbol in a password exponentially increases 
-                                the number of possible combinations. This makes passwords over a certain length 
-                                essentially uncrackable, assuming you’re not using common phrases. 
-                            </p>
-                        </td>
-                        <td class="blue">
-                            <p> Password strength isn’t personal <br><br> 
-                                It’s really important that you don’t use anything 
-                                personal to you, like a nickname, your date of birth or your pet’s name. This is 
-                                information that’s really easy for a hacker to find out simply by looking at your 
-                                social media, finding your online work profile or even just by listening in on a 
-                                conversation you’re having with someone else.
-                            </p>
-                        </td>
-                        <td class="orange">
-                            <p> Avoid past passwords <br><br>
-                                It’s also really important to make sure you don’t recycle your passwords, 
-                                particularly if they’ve been hacked before. This may seem obvious, but once 
-                                you’ve used a password, you shouldn’t reuse it. Even if you haven’t used it 
-                                for years, it’s best to come up with a new one. Especially if you’ve had issues 
-                                with a password being hacked in the past.
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-                <div id="nextpage">
-                    <button class="start" onclick="window.location.href='pages/steps.html';">LET'S CREATE A STRONG PASSWORD NOW</button>
-                </div>
-                <div class="footer">
-                    <p class="links">
-                        More information:
-                        <a
-                            href="https://support.microsoft.com/en-us/windows/create-and-use-strong-passwords-c5cebb49-8c53-4f5e-2bc4-fe357ca048eb#:~:text=Create%20strong%20passwords&text=A%20strong%20password%20is%3A,character%2C%20product%2C%20or%20organization.">Microsoft</a>
-                        <a
-                            href="https://support.google.com/accounts/answer/32040?hl=en#zippy=%2Cmake-your-password-longer-more-memorable%2Cmake-your-password-unique%2Cavoid-personal-info-common-words%2Chide-written-passwords%2Cmanage-your-passwords-with-a-tool">Google</a>
-                        <a
-                            href="https://blog.netwrix.com/2022/11/14/nist-password-guidelines/#:~:text=NIST%20now%20recommends%20a%20password,characters%20as%20a%20maximum%20length.">NIST</a>
-                    </p>
-                </div>
-            </td>
-        </tr>
-    </table>
+            <div class="form-field error success">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="It must be at least 5 characters long">
+                <small></small>
+            </div>
 
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" placeholder="It must contain @ and .">
+                <small></small>
+            </div>
+
+            <div class="form-field">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="12 alphanumeric characters + symbol">
+                <small></small>
+            </div>
+
+            <div class="form-field">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" name="confirm-password" id="confirm-password"
+                    placeholder="Type the password again...">
+                <small></small>
+            </div>
+
+            <div class="form-field">
+                <input type="submit" id="button" value="Sign up">
+            </div>
+
+            <div class="form-field">
+                <p class="links">
+                    More information:
+                    <a
+                        href="https://support.microsoft.com/en-us/windows/create-and-use-strong-passwords-c5cebb49-8c53-4f5e-2bc4-fe357ca048eb#:~:text=Create%20strong%20passwords&text=A%20strong%20password%20is%3A,character%2C%20product%2C%20or%20organization.">Microsoft</a>
+                    <a
+                        href="https://support.google.com/accounts/answer/32040?hl=en#zippy=%2Cmake-your-password-longer-more-memorable%2Cmake-your-password-unique%2Cavoid-personal-info-common-words%2Chide-written-passwords%2Cmanage-your-passwords-with-a-tool">Google</a>
+                    <a
+                        href="https://blog.netwrix.com/2022/11/14/nist-password-guidelines/#:~:text=NIST%20now%20recommends%20a%20password,characters%20as%20a%20maximum%20length.">NIST</a>
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const usernameEl = document.querySelector('#username');
+        const emailEl = document.querySelector('#email');
+        const passwordEl = document.querySelector('#password');
+        const confirmPasswordEl = document.querySelector('#confirm-password');
+        const form = document.querySelector('#signup');
+
+        // use local storage to save the password
+        var pass = document.getElementById('password');
+        pass.addEventListener('change', (e) => {
+            localStorage.setItem("pass", e.target.value);
+        });
+
+        const checkUsername = () => {
+            let valid = false;
+            const min = 5,
+                max = 25;
+            const username = usernameEl.value.trim();
+
+            if (!isRequired(username)) {
+                showError(usernameEl, 'Username cannot be blank.');
+            } else if (!isBetween(username.length, min, max)) {
+                showError(usernameEl, `Username must be between ${min} and ${max} characters.`)
+            } else {
+                showSuccess(usernameEl);
+                valid = true;
+            }
+            return valid;
+        };
+
+        const checkEmail = () => {
+            let valid = false;
+            const email = emailEl.value.trim();
+
+            if (!isRequired(email)) {
+                showError(emailEl, 'Email cannot be blank.');
+            } else if (!isEmailValid(email)) {
+                showError(emailEl, 'This email is not a valid one. It should be like example@example.com')
+            } else {
+                showSuccess(emailEl);
+                valid = true;
+            }
+            return valid;
+        };
+
+        const checkPassword = () => {
+            let valid = false;
+            const password = passwordEl.value.trim();
+
+            if (!isRequired(password)) {
+                showError(passwordEl, 'Password cannot be blank.');
+            } else if (!isPasswordSecure(password)) {
+                showError(passwordEl, 'At least 12 characters long with at least 1 lowercase and 1 uppercase letter, 1 number, and 1 special character in (!@#$%^&*)');
+            } else {
+                showSuccess(passwordEl);
+                valid = true;
+            }
+            return valid;
+        };
+
+        const checkConfirmPassword = () => {
+            let valid = false;
+            // check confirm password
+            const confirmPassword = confirmPasswordEl.value.trim();
+            const password = passwordEl.value.trim();
+
+            if (!isRequired(confirmPassword)) {
+                showError(confirmPasswordEl, 'Please enter the password again.');
+            } else if (password !== confirmPassword) {
+                showError(confirmPasswordEl, 'The password does not match.');
+            } else {
+                showSuccess(confirmPasswordEl);
+                valid = true;
+            }
+            return valid;
+        };
+
+        const isEmailValid = (email) => {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        };
+
+        const isPasswordSecure = (password) => {
+            const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{12,})");
+            return re.test(password);
+        };
+
+        const isRequired = value => value === '' ? false : true;
+        const isBetween = (length, min, max) => length < min || length > max ? false : true;
+
+        const showError = (input, message) => {
+            // get the form-field element
+            const formField = input.parentElement;
+
+            // add the error class
+            formField.classList.remove('success');
+            formField.classList.add('error');
+
+            // show the error message
+            const error = formField.querySelector('small');
+            error.textContent = message;
+        };
+
+        const showSuccess = (input) => {
+            // get the form-field element
+            const formField = input.parentElement;
+
+            // remove the error class
+            formField.classList.remove('error');
+            formField.classList.add('success');
+
+            // hide the error message
+            const error = formField.querySelector('small');
+            error.textContent = '';
+        }
+
+
+        form.addEventListener('submit', function (e) {
+            // prevent the form from submitting
+            e.preventDefault();
+
+            // validate fields
+            let isUsernameValid = checkUsername(),
+                isEmailValid = checkEmail(),
+                isPasswordValid = checkPassword(),
+                isConfirmPasswordValid = checkConfirmPassword();
+
+            let isFormValid = isUsernameValid &&
+                isEmailValid &&
+                isPasswordValid &&
+                isConfirmPasswordValid;
+
+            // if the form is valid, redirect to the next page
+            if (isFormValid) {
+                location.href='message.html';
+            }
+        });
+
+        const debounce = (fn, delay = 500) => {
+            let timeoutId;
+            return (...args) => {
+                // cancel the previous timer
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+                // setup a new timer
+                timeoutId = setTimeout(() => {
+                    fn.apply(null, args)
+                }, delay);
+            };
+        };
+
+        form.addEventListener('input', debounce(function (e) {
+            switch (e.target.id) {
+                case 'username':
+                    checkUsername();
+                    break;
+                case 'email':
+                    checkEmail();
+                    break;
+                case 'password':
+                    checkPassword();
+                    break;
+                case 'confirm-password':
+                    checkConfirmPassword();
+                    break;
+            }
+        }));
+    </script>
 </body>
 
 </html>

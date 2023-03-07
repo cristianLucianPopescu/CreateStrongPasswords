@@ -4,15 +4,17 @@
   box-sizing: border-box;
 }
 
+
 /* INDEX PAGE */
 
 #index {
   background-image: url('../img/wallpaper.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  height: 79.4vh;
 }
 
-.container {
+.content {
   margin-left: auto;
   margin-right: auto;
   margin-top: 200px;
@@ -29,7 +31,7 @@
 }
 
 .header h1 {
-  padding-top: 46px;
+  padding-top: 40px;
   font-size: 2.8vw;
   background-color: #fff;
 }
@@ -89,80 +91,77 @@
   height: 100%;
 }
 
-/* SIGNUP PAGE */
 
-#signup {
+/* INTRO PAGE */
+
+#intro {
   background-color: #e3e3e8;
 }
 
 table {
-  width:100%;
+  width: 100%;
 }
 
-.maincontent {
-  width:850px;
-  margin:0 auto;
-  padding:0;
+.main-content {
+  width: 950px;
+  margin: 0 auto;
+}
+
+.main-content td {
+  border-radius: 20px;
 }
 
 .orange {
-  background-color:#cf644d;
-  color:white;
+  background-color: #cf644d;
+  color: white;
 }
 
 .blue {
-  background-color:#64A2C8;
-  color:white;
+  background-color: #64A2C8;
+  color: white;
 }
 
 table img {
-  width:100%;
-  height:300px;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
 }
 
 table h2 {
-  text-align:center;
-  margin:0.5em;
-}
-
-.introduction {
-  text-align:center;
-  width:50%;
-  margin:0 auto;
-}
-
-.features {
-  margin-bottom: 20px;
+  text-align: center;
+  margin: 0.5em;
 }
 
 .features td {
-  width:50%;
-  margin:0;
-  padding:20px;
-  height:250px;
-  float:left;
+  width: 49%;
+  margin: 3px;
+  padding: 20px;
+  height: 250px;
+  float: left;
 }
 
 .features p {
-  margin-left:1em;
+  margin-left: 1em;
+  font-size: 17px;
+  line-height: 23px;
 }
 
 .features li {
-  margin-left:3em;
+  margin-left: 2.2em;
+  font-size: 16.9px;
 }
 
-#nextpage {
+#next {
   text-align: center;
 }
 
-#nextpage button {
-  background-color: #9a9aa7;
+#next button {
+  background-color: #e3e3e8;
   border: none;
-  margin: 40px;
-  color: #fff;
+  margin: 20px;
   padding: 10px 15px;
   border-radius: 100px;
-  box-shadow: 0px 0px 2px 2px rgb(151, 145, 145);
+  box-shadow: 0px 0px 2px 2px #9a9aa4;
   font-size: 17px;
   letter-spacing: 0.5px;
   z-index: 999;
@@ -172,14 +171,16 @@ table h2 {
   transition-duration: 0.6s;
 }
 
-#nextpage button:hover {
-  background-color: #5b3898;
+#next button:hover {
+  background-color: #c5c4c7;
 }
 
+/* Footer */
 .footer {
   text-align: center;
   margin: auto;
   width: 100%;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -188,31 +189,197 @@ table h2 {
   word-spacing: 10px;
 }
 
-/* STEPS PAGE */
+.links a {
+  text-decoration: none;
+}
+
+/* SIGNUP PAGE */
+
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+:root {
+  --error-color: #dc3545;
+  --success-color: #28a745;
+  --warning-color: #0602dd;
+}
+
+#register {
+  background-image: url('../img/se.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 84.5vh;
+}
+
+#signup {
+  font-family: Raleway;
+  font-size: 20px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.7px);
+  -webkit-backdrop-filter: blur(3.7px);
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 600px;
+  margin-top: 150px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form */
+.form {
+  padding: 10px 20px;
+}
+
+.form h1 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.form p {
+  font-size: medium; padding-bottom: 15px;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.form-field input {
+  border: solid 2px #f0f0f0;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+}
+
+.form-field input:focus {
+  outline: none;
+}
+
+/* Color the borders of the boxes with errors */
+.form-field.error input {
+  border-color: var(--error-color);
+  /*red*/
+}
+
+/* Color the borders of the boxes with no errors */
+.form-field.success input {
+  border-color: var(--success-color);
+  /*green*/
+}
+
+/* Error messages */
+.form-field small {
+  color: var(--warning-color);
+  /*blue*/
+}
+
+/* Form button */
+.form-field #button {
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+.form-field #button:hover {
+  background: #0069d9;
+  cursor: pointer;
+}
+
+.form-field #button:focus {
+  outline: none;
+}
+
+/* Info links */
+.form-field .links {
+  padding-top: 20px;
+  text-transform: uppercase;
+}
+
+
+/* MESSAGE PAGE */
+
+#message {
+  background-color: #FFDEE9;
+  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  height: 9.7vh;
+}
+
+#message .content {
+  margin-top: 100px;
+  width: 40%;
+}
+
+#message .header {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#message .header img {
+  width: 100%;
+  height: 250px;
+}
+
+.main {
+  padding: 10px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.main #feedback {
+  font-size: 18px; 
+  font-style: oblique; 
+  margin-top: 5px; 
+  margin-bottom: 5px; 
+  margin-left: 30px;
+}
+
+.main #survey {
+  text-align: center;
+  font-size: xx-large;
+  margin-top: 15px;
+}
+
+.main #survey a {
+  text-decoration: none; 
+  color: #216996; 
+}
+
 
 /*MEDIA QUERIES*/
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  
-}
+@media only screen and (max-width: 600px) {}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  
-}
+@media only screen and (min-width: 600px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  
-}
+@media only screen and (min-width: 768px) {}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  
-}
+@media only screen and (min-width: 992px) {}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  
-}
+@media only screen and (min-width: 1200px) {}
