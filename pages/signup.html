@@ -1,28 +1,276 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <title>CSP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- LOADING EXTERNAL FILES LIKE CSS AND JS -->
+    <title>CSP</title>
+    <!-- LOADING EXTERNAL FILES LIKE CSS AND ZXCVBN LIBRARY -->
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <script src="../js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 </head>
-<body>
-    <div class="header">
-        <a href="../index.html">
-            <img src="../img/logo-small.png" alt="CSP logo" style="width:128px;height:128px;float:left";>
-        </a>
-        <h1>
-            Work in progress!!
-        </h1> 
+
+<body id="register">
+    <div class="container">
+        <form id="signup" class="form">
+            <a href="../index.html">
+                <img src="../img/banner.png" alt="CSP banner">
+            </a>
+            <p>All fields are mandatory.</p>
+
+            <div class="form-field error success">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="It must be at least 5 characters long">
+                <small></small>
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" placeholder="It must contain @ and .">
+                <small></small>
+            </div>
+
+            <div class="form-field">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="12 alphanumeric characters + symbol">
+                <p id="password-strength-text"></p>
+                <small></small>
+            </div>
+
+            <div class="form-field">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" name="confirm-password" id="confirm-password"
+                    placeholder="Type the password again...">
+                <small></small>
+            </div>
+
+            <div class="form-field">
+                <input type="submit" id="button" value="Sign up">
+            </div>
+
+            <div class="form-field">
+                <p class="links">
+                    To learn more about passwords, go to:
+                    <a
+                        href="https://support.microsoft.com/en-us/windows/create-and-use-strong-passwords-c5cebb49-8c53-4f5e-2bc4-fe357ca048eb#:~:text=Create%20strong%20passwords&text=A%20strong%20password%20is%3A,character%2C%20product%2C%20or%20organization.">Microsoft</a>
+                    <a
+                        href="https://support.google.com/accounts/answer/32040?hl=en#zippy=%2Cmake-your-password-longer-more-memorable%2Cmake-your-password-unique%2Cavoid-personal-info-common-words%2Chide-written-passwords%2Cmanage-your-passwords-with-a-tool">Google</a>
+                    <a
+                        href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online">NCSC</a>
+                </p>
+            </div>
+        </form>
     </div>
-    <div class="footer">
-        <p class="liks">
-            <a href="https://support.microsoft.com/en-us/windows/create-and-use-strong-passwords-c5cebb49-8c53-4f5e-2bc4-fe357ca048eb#:~:text=Create%20strong%20passwords&text=A%20strong%20password%20is%3A,character%2C%20product%2C%20or%20organization.">Microsoft</a>
-            <a href="https://support.google.com/accounts/answer/32040?hl=en#zippy=%2Cmake-your-password-longer-more-memorable%2Cmake-your-password-unique%2Cavoid-personal-info-common-words%2Chide-written-passwords%2Cmanage-your-passwords-with-a-tool">Google</a> 
-            <a href="https://blog.netwrix.com/2022/11/14/nist-password-guidelines/#:~:text=NIST%20now%20recommends%20a%20password,characters%20as%20a%20maximum%20length.">NIST</a>
-          </p>
-    </div>
+
+    <script>
+        var getUsername = document.querySelector('#username');
+        var getEmail = document.querySelector('#email');
+        var getPassword = document.querySelector('#password');
+        var getConfirmation = document.querySelector('#confirm-password');
+        var getForm = document.querySelector('#signup');
+
+        // use local storage to save the password
+        var pass = document.getElementById('password');
+        pass.addEventListener('change', (e) => {
+            localStorage.setItem("pass", e.target.value);
+        });
+
+        // validate username
+        const checkUsername = () => {
+            let valid = false;
+            const min = 5,
+                max = 25;
+            const username = getUsername.value.trim();
+
+            if (!isRequired(username)) {
+                showError(getUsername, 'Username cannot be blank.');
+            } else if (!isBetween(username.length, min, max)) {
+                showError(getUsername, `Username must be between ${min} and ${max} characters.`)
+            } else {
+                showSuccess(getUsername);
+                valid = true;
+            }
+            return valid;
+        };
+
+        // validate email
+        const checkEmail = () => {
+            let valid = false;
+            const email = getEmail.value.trim();
+
+            if (!isRequired(email)) {
+                showError(getEmail, 'Email cannot be blank.');
+            } else if (!isEmailValid(email)) {
+                showError(getEmail, 'This email is not a valid one. It should be like example@example.com')
+            } else {
+                showSuccess(getEmail);
+                valid = true;
+            }
+            return valid;
+        };
+
+        // validate password
+        const checkPassword = () => {
+            let valid = false;
+            const password = getPassword.value.trim();
+            const username = getUsername.value.trim();
+
+            if (!isRequired(password)) {
+                showError(getPassword, 'Password cannot be blank.');
+            } else if (password==username) {
+                showError(getPassword, 'Password cannot contain the username.');
+            // }else if (!isPasswordValid(password)) {
+            //     showError(getPassword, 'At least 12 characters long with at least 1 lowercase and 1 uppercase letter, 1 number, and 1 special character');
+            } else if (password.search(/[a-z]/) < 0) {
+                showError(getPassword, 'Password must contain at least one lowercase letter.');
+            } else if (password.search(/[A-Z]/) < 0) {
+                showError(getPassword, 'Password must contain at least one uppercase letter.');
+            } else if (password.search(/[0-9]/) < 0) {
+                showError(getPassword, 'Password must contain at least one digit.'); 
+            } else if (password.search(/[!@#$%^&*()+=-\?;,./{}|\":<>\[\]\\\' ~_]/i) < 0) {
+                showError(getPassword, 'Password must contain at least one symbol.');     
+            } else if (password.length < 12) {
+                showError(getPassword, 'Password must be at least 12 characters long.');
+            } else {
+                showSuccess(getPassword);
+                valid = true;
+            }
+            return valid;
+        };
+
+        // validate if passwords match
+        const checkConfirmPassword = () => {
+            let valid = false;
+            const confirmPassword = getConfirmation.value.trim();
+            const password = getPassword.value.trim();
+
+            if (!isRequired(confirmPassword)) {
+                showError(getConfirmation, 'Please enter the password again.');
+            } else if (password !== confirmPassword) {
+                showError(getConfirmation, 'The password does not match.');
+            } else {
+                showSuccess(getConfirmation);
+                valid = true;
+            }
+            return valid;
+        };
+
+        const isEmailValid = (email) => {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        };
+
+        const isPasswordValid = (password) => {
+            const re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()+=-\?;,./{}|\":<>\[\]\\\' ~_]).{12,}/;
+            return re.test(password);
+        };
+
+        const isRequired = value => value === '' ? false : true;
+        const isBetween = (length, min, max) => length < min || length > max ? false : true;
+
+        const showError = (input, message) => {
+            // get the form-field element
+            const formField = input.parentElement;
+
+            // add the error class
+            formField.classList.remove('success');
+            formField.classList.add('error');
+
+            // show the error message
+            const error = formField.querySelector('small');
+            error.textContent = message;
+        };
+
+        const showSuccess = (input) => {
+            // get the form-field element
+            const formField = input.parentElement;
+
+            // remove the error class
+            formField.classList.remove('error');
+            formField.classList.add('success');
+
+            // hide the error message
+            const error = formField.querySelector('small');
+            error.textContent = '';
+        }
+
+        getForm.addEventListener('submit', function (e) {
+            // prevent the form from submitting
+            e.preventDefault();
+
+            // validate fields
+            let isUsernameValid = checkUsername(),
+                isEmailValid = checkEmail(),
+                isPasswordValid = checkPassword(),
+                isConfirmPasswordValid = checkConfirmPassword();
+
+            let isFormValid = isUsernameValid &&
+                isEmailValid &&
+                isPasswordValid &&
+                isConfirmPasswordValid;
+
+            // if the form is valid, redirect to the next page
+            if (isFormValid) {
+                location.href='message.html';
+            }
+        });
+
+        // make use of debounce to delay the messages
+        const debounce = (fn, delay = 500) => {
+            let timeoutId;
+            return (...args) => {
+                // cancel the previous timer
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+                // setup a new timer
+                timeoutId = setTimeout(() => {
+                    fn.apply(null, args)
+                }, delay);
+            };
+        };
+
+        getForm.addEventListener('input', debounce(function (e) {
+            switch (e.target.id) {
+                case 'username':
+                    checkUsername();
+                    break;
+                case 'email':
+                    checkEmail();
+                    break;
+                case 'password':
+                    checkPassword();
+                    break;
+                case 'confirm-password':
+                    checkConfirmPassword();
+                    break;
+            }
+        }));
+
+        // strength meter
+        var strength = {
+            0: "Very Weak",
+            1: "Bad",
+            2: "Weak",
+            3: "Good",
+            4: "Strong"
+        }
+
+        var text = document.getElementById('password-strength-text');
+
+        getPassword.addEventListener('input', function () {
+            var val = getPassword.value;
+            var result = zxcvbn(val);
+
+            // update the text 
+            if (val !== "") {
+                text.innerHTML = "Strength: " + strength[result.score];
+            } else {
+                text.innerHTML = "";
+            }
+        });
+
+    </script>
 </body>
+
 </html>

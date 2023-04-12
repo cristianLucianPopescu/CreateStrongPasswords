@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSP</title>
+    <!-- LOADING EXTERNAL FILES LIKE CSS AND ZXCVBN LIBRARY -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+</head>
+
+<body id="message">
+    
+    <div class="content">
+        <div class="banner">
+            <a href="../index.html">
+                <img src="../img/small-logo.PNG" alt="CSP logo">
+            </a>
+        </div>
+        <div class="main">
+            <h1>Well Done! <span>&#128079;&#127995;</span></h1><br>
+            <p>Below you have feedback regarding the chosen password:</p>
+            <p id="feedback"></p>
+            <p>Thank you for using our website.</p>
+            <p>Now, please, follow the link below and tell us how it was.</p>
+            <p id="survey"><a href="https://forms.gle/5gTD2pEuPBZiTXNL9">!!SURVEY!!</a></p>
+        </div>
+    </div>
+
+    <script>
+        // retrieve the password from local storage
+        var password = localStorage.getItem("pass");
+
+        // use zxcvbn to provide feedback
+        var feedback = document.getElementById("feedback");
+        var result = zxcvbn(password);
+        feedback.innerHTML = 'Score between 0 (risky password) and 4 (strong password): ' + result.score + '<br>'
+                             + 'Estimated guesses needed to crack it: ' + result.guesses + '<br>'
+                             + 'Time to crack it: ' + result.crack_times_display.online_no_throttling_10_per_second + '<br>'
+                             + 'What is wrong with the password (if anything wrong): ' + result.feedback.warning + '<br>'
+                             + 'What to improve (if password is weak): ' + result.feedback.suggestions;
+                    
+        if (result.feedback.warning < 1) {
+            feedback.innerHTML = 'Score between 0 (risky password) and 4 (strong password): ' + result.score + '<br>'
+                             + 'Estimated guesses needed to crack it: ' + result.guesses + '<br>'
+                             + 'Time to crack it: ' + result.crack_times_display.online_no_throttling_10_per_second + '<br>'
+                             + 'What is wrong with the password (if anything wrong): ' + 'Nothing' + '<br>'
+                             + 'What to improve (if password is weak): ' + 'Nothing';
+        } 
+        
+    </script>
+</body>
+
+</html>

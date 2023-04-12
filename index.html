@@ -1,13 +1,106 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <title>CSP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/style.css" />
+    <title>CSP</title>
+    <!-- LOADING EXTERNAL FILES LIKE CSS AND JS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="js/script.js"></script>
 </head>
-<body>
-    <h1>work in progress</h1>
+
+<!-- CALL THE FUNCTION FROM JS FILE TO DISPLAY THE CONSENT FORM -->
+<body id="index" onload="openConsent()">
+    <!-- CONSENT FORM -->
+    <div id="consentForm">
+        <label for="consent"><h1>CONSENT FORM</h1></label>
+        <textarea readonly disabled id="scrollable-textbox" name="paragraphs" value="">
+          
+          Project title: A study of password guidelines, user habits and how to support users attain better passwords (EMS6591)
+          Researcher name(s): Cristian Popescu
+                
+          What is the research about?
+          We invite you to participate in a research project about the assistance users get when creating their passwords on
+          websites. To support the researcher, Cristian Popescu, the survey collects information about the usability of the
+          prototype, as well as some facts regarding user behaviors in terms of password security. The survey responses will 
+          be crucial as it will allow the investigator to verify how effective the website is in guiding users to attain strong 
+          passwords. 
+
+          Do I have to take part?
+          This form has been written to help you decide if you would like to take part. It is up to you and you alone whether 
+          you wish to take part. If you do decide to take part you will be free to withdraw at any time without providing a 
+          reason and without penalty. 
+
+          What will I be required to do?
+          You will be asked to test the prototype first, which involves reading some information about passwords, create a 
+          password and get feedback regarding the newly generated password. The second part requires you to follow a link that 
+          can be found at the bottom of the last page. This link takes you to the online survey where you will be asked to 
+          provide essential feedback on the prototype and password habits. No identifying information will be collected, and you 
+          can choose not to answer any question. In terms of duration, it should not take more than 10 minutes.  
+
+          How will you handle my data?
+          Your data will be stored in an anonymised form and will only be accessible to Cristian Popescu and Jacques Ophoff (see 
+          contact details below). This means that nobody including the researchers could reasonably identify you within the data. 
+          Your data will be stored on a secure university server, with data fully anonymised at the earliest opportunity (i.e., 
+          when data that could identify you is no longer necessary for the purposes of the research). Your responses are treated 
+          in the strictest confidence - it will be impossible to identify individuals within a dataset when any of the research 
+          is disseminated (e.g., in publications/presentations). Abertay University acts as Data Controller 
+          (DataProtectionOfficer@abertay.ac.uk). 
+          Cristian Popescu (2004910@uad.ac.uk) 
+          Jacques Ophoff (j.ophoff@abertay.ac.uk) 
+
+          Retention of research data
+          Researchers are obliged to retain research data for up to 10 years' post-publication, however your anonymised research 
+          data may be retained indefinitely (e.g., so that researchers engage in open practice and other researchers can access 
+          their data to confirm the conclusions of published work). Consistent with our data retention policy, researchers retain 
+          consent forms for as long as we continue to hold information about a data subject and for 10 years for published research
+          (including Research Degree thesis). 
+
+          You can find our procedure for complaints (regarding research projects) and our privacy notice and legal basis for 
+          processing research data at: https://intranet.abertay.ac.uk/public/research-ethics-privacy-notice-information/ 
+
+          Consent statement:
+          Abertay University attaches high priority to the ethical conduct of research. Please consider the following before 
+          indicating your consent on this form. Indicating your consent confirms that you are willing to participate in the research,
+          however, indicating consent does not commit you to anything you do not wish to do, and you are free to withdraw your 
+          participation at any time. You are indicating consent under the following assumptions: 
+          •	I understand the contents of the participant information sheet and consent form. 
+          •	I have been given the opportunity to ask questions about the research and have had them answered satisfactorily. 
+          •	I understand that my participation is entirely voluntary and that I can withdraw from the research (parts of the project 
+          or the entire project) at any time without penalty and without having to provide an explanation. 
+          •	I understand who has access to my data and how it will be handled at all stages of the research project. 
+          
+          I consent to take part in this study conducted by Cristian Popescu who intends to use my data for further research examining 
+          the usability and effectiveness of the prototype to support users in creating strong passwords. 
+        </textarea>    
+        
+        <button type="button" class="agree" onclick="closeConsent();typeWriter()">Yes, I do consent</button>
+        <button type="button" class="cancel" onclick="showPopup()">No, I do not consent</button>
+        <span id="popup-text">To get access to the website, you must agree with the terms.</span>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <a href="index.html">
+                <img src="img/small-logo12.png" alt="CSP logo">
+            </a>
+            <h1 id="title">
+            </h1> 
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <h2><span class="bold">NEVER BE AFRAID</span> that your information gets into wrong hands!</h2> <br>
+                <h3>Learn how to stay safe online by creating <span class="bold">STRONG PASSWORDS</span> right here.</h3>
+                <button onclick="window.location.href='pages/intro.html'">FIND OUT MORE</button>
+            </div>
+            <div class="column">
+                <img src="img/background.jpg" alt="Someone typing credentials">
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
