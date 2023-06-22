@@ -15,4 +15,7 @@ The password policy implemented on the website is strict, with users having to c
     
 Even though the password policy implemented on the website was somehow stricter, the users put little effort into creating their passwords, making the prototype easy to use and providing satisfactory information for them to generate strong passwords.  
 The features of the prototype were helpful for participants, with the strength meter and the feedback post-password attempt getting positive reactions overall.   
-The generated passwords obtained high scores; for that reason, the prototype could be considered a real success.
+The generated passwords obtained high scores; for that reason, the prototype could be considered a real success.  
+  
+Websites should have more strict policies, information on potential risks, password feedback, and a live strength meter to help users create strong passwords, therefore offering them better account protection.  
+It is crucial for users to prioritize password creation as it is their primary defence against unauthorized access and potential negative outcomes such as identity theft, financial loss, or reputation damage.
